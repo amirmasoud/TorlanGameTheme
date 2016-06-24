@@ -30,8 +30,8 @@ get_header(); ?>
 			endwhile; // End of the loop.
 			?>
 
-	</div><!-- #primary -->
+	</div>
 
 <?php
-//get_sidebar();
+get_sidebar();
 get_footer();

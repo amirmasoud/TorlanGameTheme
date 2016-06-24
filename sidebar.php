@@ -17,8 +17,9 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		<!-- Intro -->
 			<section id="intro">
 				<header>
-					<img src="<?php echo get_stylesheet_directory_uri() ?>/images/torlangame-logo.png" width="355">
-					<p></p>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img src="<?php echo get_stylesheet_directory_uri() ?>/images/torlangame-logo.png" width="355">
+					</a>
 				</header>
 			</section>
 			<?php dynamic_sidebar( 'sidebar-1' ); ?>

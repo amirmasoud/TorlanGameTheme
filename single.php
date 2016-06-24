@@ -9,8 +9,8 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<!-- Main -->
+	<div id="main">
 
 		<?php
 		while ( have_posts() ) : the_post();
@@ -38,9 +38,8 @@ get_header(); ?>
 				<li><a href="https://telegram.me/torlangameofficial" class="fa-send"><span class="label">Telegram</span></a></li>
 			</ul>
 		</section>
+	</div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
 //get_sidebar();
