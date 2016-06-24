@@ -32,6 +32,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 					<li><a href="https://www.instagram.com/torlangame/" class="fa-instagram"><span class="label">Instagram</span></a></li>
 					<li><a href="https://plus.google.com/b/108685213706490577534/108685213706490577534/posts" class="fa-google-plus"><span class="label">Google Plus</span></a></li>
 					<li><a href="http://www.aparat.com/TorlanGame" class="fa-video-camera"><span class="label">Aparat</span></a></li>
+					<li><a href="https://telegram.me/torlangameofficial" class="fa-send"><span class="label">Telegram</span></a></li>
 				</ul>
 			</section>
 
