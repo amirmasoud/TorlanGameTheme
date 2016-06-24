@@ -43,7 +43,7 @@
 								<li class="search">
 									<a class="fa-search" href="#search">Search</a>
 									<form id="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-										<input type="text" name="s" placeholder="<?php _e("Search", "toelangame") ?>" value="<?php echo get_search_query(); ?>" />
+										<input type="text" name="s" placeholder="<?php _e("جستجو", "toelangame") ?>" value="<?php echo get_search_query(); ?>" />
 									</form>
 								</li>
 								<li class="menu">
@@ -59,7 +59,7 @@
 						<!-- Search -->
 							<section>
 								<form class="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-									<input type="text" name="s" placeholder="<?php _e("Search", "toelangame") ?>" value="<?php echo get_search_query(); ?>" />
+									<input type="text" name="s" placeholder="<?php _e("جستجو", "toelangame") ?>" value="<?php echo get_search_query(); ?>" />
 								</form>
 							</section>
 
