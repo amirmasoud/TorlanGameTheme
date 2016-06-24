@@ -7,9 +7,16 @@
 class torlangame_Widget_Recent_Posts extends WP_Widget {
 
     function __construct() {
-        $widget_ops = array('classname' => 'widget_recent_entries', 'description' => __( "آخرین مطالب ارسال شده") );
-        parent::__construct('recent-posts', __('Recent Posts'), $widget_ops);
-        $this->alt_option_name = 'widget_recent_entries';
+        parent::__construct(
+    
+            'torlangame_Widget_Recent_Posts',
+            __( 'آخرین نوشته بر اساس دسته', 'torlangame' ),
+            array(
+                'classname'   => 'torlangame_Widget_Recent_Posts widget_recent_entries',
+                'description' => __( 'نمایش مطالب بر اساس یه دسته خاص.', 'torlangame' )
+            )
+    
+        );
 
         add_action( 'save_post', array($this, 'flush_widget_cache') );
         add_action( 'deleted_post', array($this, 'flush_widget_cache') );
@@ -33,14 +40,11 @@ class torlangame_Widget_Recent_Posts extends WP_Widget {
         ob_start();
         extract($args);
 
-        $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Recent Posts' );
-        $title = apply_filters( 'widget_title', $title, $instance, $this->id_base );
-        $number = ( ! empty( $instance['number'] ) ) ? absint( $instance['number'] ) : 10;
-        if ( ! $number )
-            $number = 10;
-        $show_date = isset( $instance['show_date'] ) ? $instance['show_date'] : false;
+        $title     = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
+        $category  = $instance['category'];
+        $number    = $instance['number'];
 
-        $r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true ) ) );
+        $r = new WP_Query( apply_filters( 'widget_posts_args', array( 'posts_per_page' => $number, 'no_found_rows' => true, 'post_status' => 'publish', 'ignore_sticky_posts' => true, 'cat' => $category, 'post_type' => 'post' ) ) );
         if ($r->have_posts()) :
 ?>
         <?php echo $before_widget; ?>
@@ -72,10 +76,10 @@ class torlangame_Widget_Recent_Posts extends WP_Widget {
     }
 
     function update( $new_instance, $old_instance ) {
-        $instance = $old_instance;
-        $instance['title'] = strip_tags($new_instance['title']);
-        $instance['number'] = (int) $new_instance['number'];
-        $instance['show_date'] = (bool) $new_instance['show_date'];
+        $instance              = $old_instance;
+        $instance['title']     = wp_strip_all_tags( $new_instance['title'] );
+        $instance['category']  = wp_strip_all_tags( $new_instance['category'] );
+        $instance['number']    = is_numeric( $new_instance['number'] ) ? intval( $new_instance['number'] ) : 5;
         $this->flush_widget_cache();
 
         $alloptions = wp_cache_get( 'alloptions', 'options' );
@@ -90,18 +94,39 @@ class torlangame_Widget_Recent_Posts extends WP_Widget {
     }
 
     function form( $instance ) {
-        $title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-        $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-        $show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+        $defaults  = array( 'title' => '', 'category' => '', 'number' => 5 );
+        $instance  = wp_parse_args( ( array ) $instance, $defaults );
+        $title     = $instance['title'];
+        $category  = $instance['category'];
+        $number    = $instance['number'];
+
 ?>
-        <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
+        <p>
+            <label for="rpc_title"><?php _e( 'عنوان' ); ?>:</label>
+            <input type="text" class="widefat" id="rpc_title" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $title ); ?>" />
+        </p>
+        
+        <p>
+            <label for="rpc_category"><?php _e( 'دسته' ); ?>:</label>              
+            
+            <?php
 
-        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
-        <input id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="text" value="<?php echo $number; ?>" size="3" /></p>
+            wp_dropdown_categories( array(
+                'hide_empty' => 0,
+                'name'       => $this->get_field_name( 'category' ),
+                'id'         => 'rpc_category',
+                'class'      => 'widefat',
+                'selected'   => $category
+            ) );
 
-        <p><input class="checkbox" type="checkbox" <?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
-        <label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
+            ?>
+        </p>
+        
+        <p>
+            <label for="rpc_number"><?php _e( 'تعداد مطالب برای نمایش' ); ?>: </label>
+            <input type="text" id="rpc_number" name="<?php echo $this->get_field_name( 'number' ); ?>" value="<?php echo esc_attr( $number ); ?>" size="3" />
+        </p>
+
 <?php
     }
 }
