@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2016-02-14 21:43:07+00:00\n"
-"PO-Revision-Date: Fri Jun 24 2016 09:48:37 GMT+0430 (Iran Daylight Time)\n"
+"PO-Revision-Date: Fri Jun 24 2016 09:58:59 GMT+0430 (Iran Daylight Time)\n"
 "Last-Translator: admin <admin@admin.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: Persian\n"
@@ -31,43 +31,45 @@ msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
+"متاسفانه این لینک اشتباه است. می توانید از قسمت جستحو برای پیدا کردن مطلب "
+"خود استفاده کنید."
 
 #: 404.php:33
 msgid "Most Used Categories"
-msgstr ""
+msgstr "دسته های بیشتر استفاده شده"
 
 #. translators: %1$s: smiley
 #: 404.php:51
 #, php-format
 msgid "Try looking in the monthly archives. %1$s"
-msgstr ""
+msgstr "نگاهی به آرشیو ماهیانه بیاندازید. %1$s"
 
 #: comments.php:31
 #, php-format
 msgctxt "comments title"
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
+msgstr[0] "%1$s دیدگاه برای %2$s"
 msgstr[1] ""
 
 #: comments.php:40
 #: comments.php:61
 msgid "Comment navigation"
-msgstr ""
+msgstr "راهبری دیدگاه ها"
 
 #: comments.php:43
 #: comments.php:64
 msgid "Older Comments"
-msgstr ""
+msgstr "دیدگاه های قبلی"
 
 #: comments.php:44
 #: comments.php:65
 msgid "Newer Comments"
-msgstr ""
+msgstr "دیدگاه های بعدی"
 
 #: comments.php:78
 msgid "Comments are closed."
-msgstr ""
+msgstr "نمی توان دیدگاه گذاشت."
 
 #: footer.php:18
 msgid "https://wordpress.org/"
@@ -76,117 +78,119 @@ msgstr ""
 #: footer.php:18
 #, php-format
 msgid "Proudly powered by %s"
-msgstr ""
+msgstr "با افتخار قدرت گرفته از %s\n"
 
 #: footer.php:20
 #, php-format
 msgid "Theme: %1$s by %2$s."
-msgstr ""
+msgstr "تم: %1$s توسط %2 $s."
 
 #: functions.php:47
 msgid "Primary"
-msgstr ""
+msgstr "اصلی"
 
 #: functions.php:102
 msgid "Sidebar"
-msgstr ""
+msgstr "سایدبار"
 
 #: header.php:25
 msgid "Skip to content"
-msgstr ""
+msgstr "پرش به مطلب"
 
 #: header.php:45
 msgid "Primary Menu"
-msgstr ""
+msgstr "منوی اصلی"
 
 #: inc/template-tags.php:28
 #, php-format
 msgctxt "post date"
 msgid "Posted on %s"
-msgstr ""
+msgstr "ارسال شده در %s"
 
 #: inc/template-tags.php:33
 #, php-format
 msgctxt "post author"
 msgid "by %s"
-msgstr ""
+msgstr "توسط %s"
 
 #. translators: used between list items, there is a space after the comma
 #: inc/template-tags.php:50
 #: inc/template-tags.php:56
 msgid ", "
-msgstr ""
+msgstr "، "
 
 #: inc/template-tags.php:52
 #, php-format
 msgid "Posted in %1$s"
-msgstr ""
+msgstr "ارسال شده در %1$s"
 
 #: inc/template-tags.php:58
 #, php-format
 msgid "Tagged %1$s"
-msgstr ""
+msgstr "برچسب گذاری شده با %1$s"
 
 #: inc/template-tags.php:64
 msgid "Leave a comment"
-msgstr ""
+msgstr "گذاشتن دیدگاه"
 
 #: inc/template-tags.php:64
 msgid "1 Comment"
-msgstr ""
+msgstr "1 دیدگاه"
 
 #: inc/template-tags.php:64
 #, c-format
 msgid "% Comments"
-msgstr ""
+msgstr "% دیدگاه"
 
 #. translators: %s: Name of current post
 #: inc/template-tags.php:71
 #: template-parts/content-page.php:33
 #, php-format
 msgid "Edit %s"
-msgstr ""
+msgstr "ویرایش %s"
 
 #: search.php:19
 #, php-format
 msgid "Search Results for: %s"
-msgstr ""
+msgstr "نتایج جستجو برای: %s"
 
 #: template-parts/content-none.php:14
 msgid "Nothing Found"
-msgstr ""
+msgstr "موردی پیدا نشد"
 
 #: template-parts/content-none.php:21
 #, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
+msgstr "آماده ارسال اولین پست خود هستید؟ <a href=\"%1$s\">از اینجا شروع کنید</a>.\n"
 
 #: template-parts/content-none.php:25
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
-msgstr ""
+msgstr "متاسفانه موردی مطابق با کلمه جستجوی شما پیدا نشد."
 
 #: template-parts/content-none.php:31
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
+"به نظر می رسد ما نتوانستیم موردی برای کلمه جستجوی شده پیدا کنیم، احتمالا "
+"جستجو به شما کمک خواهد کرد."
 
 #: template-parts/content-page.php:22
 #: template-parts/content.php:38
 msgid "Pages:"
-msgstr ""
+msgstr "صفحات:"
 
 #. translators: %s: Name of current post.
 #: template-parts/content.php:33
 #, php-format
 msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr ""
+msgstr "ادامه خواندن %s <span class=\"meta-nav\">&rarr;</span>\n"
 
 #. Theme Name of the plugin/theme
 msgid "_s"
-msgstr ""
+msgstr "تورلان گیم"
 
 #. Theme URI of the plugin/theme
 msgid "http://underscores.me/"
