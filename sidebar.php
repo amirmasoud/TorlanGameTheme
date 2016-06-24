@@ -25,7 +25,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 		<!-- Footer -->
 			<section id="footer">
-				<ul class="icons">
+				<ul class="icons align-center">
 					<li><a href="https://twitter.com/TorlanGame" class="fa-twitter"><span class="label">Twitter</span></a></li>
 					<li><a href="https://www.facebook.com/TorlanGame/" class="fa-facebook"><span class="label">Facebook</span></a></li>
 					<li><a href="https://www.instagram.com/torlangame/" class="fa-instagram"><span class="label">Instagram</span></a></li>
