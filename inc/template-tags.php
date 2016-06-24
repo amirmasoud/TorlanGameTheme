@@ -76,7 +76,7 @@ function torlangame_entry_footer() {
 	echo "</ul>";
 	if ( ! is_single() ) {
 		echo '<ul class="actions">';
-			echo '<li><a href="#" class="button big">ادامه مطلب</a></li>';
+			echo '<li><a href="' . esc_url( get_permalink() ) . '" class="button big">ادامه مطلب</a></li>';
 		echo '</ul>';
 	}
 }

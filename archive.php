@@ -33,7 +33,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			torlangame_the_posts_navigation();
 
 		else :
 
