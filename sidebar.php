@@ -16,9 +16,8 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	<section id="sidebar">
 		<!-- Intro -->
 			<section id="intro">
-				<!-- <a href="#" class="logo"><img src="images/logo.jpg" alt="" /></a> -->
 				<header>
-					<h2>تورلان گیم</h2>
+					<img src="<?php echo get_stylesheet_directory_uri() ?>/images/torlangame-logo.png" width="355">
 					<p></p>
 				</header>
 			</section>
