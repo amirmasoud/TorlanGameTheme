@@ -15,6 +15,7 @@
 			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		</div>
 	</header>
+	<a href="<?php echo esc_url( get_permalink() ); ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
 	<div class="entry-content">
 		<?php
 			the_content();
