@@ -176,3 +176,7 @@ require get_template_directory() . '/inc/jetpack.php';
  */
 require get_template_directory() . '/inc/recent-post-widget.php';
 
+/**
+ * Load video custom post type
+ */
+require get_template_directory() . '/inc/video-post-type.php';

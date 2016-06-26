@@ -36,6 +36,7 @@
 								<li><a href="http://torlangame.com/category/%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7-%D9%88-%D8%AA%D9%82%D9%84%D8%A8/">راهنما و تقلب</a></li>
 								<li><a href="http://torlangame.com/category/%D8%B3%DB%8C%D8%B3%D8%AA%D9%85-%D9%85%D9%88%D8%B1%D8%AF-%D9%86%DB%8C%D8%A7%D8%B2/">سیستم مورد نیاز</a></li>
 								<li><a href="http://torlangame.com/category/%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF/">دانلود</a></li>
+								<li><a href="http://torlangame.com/movies/">ویدیو</a></li>
 							</ul>
 						</nav>
 						<nav class="main">
@@ -89,6 +90,11 @@
 									<li>
 										<a href="http://torlangame.com/category/%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF/">
 											<h3>دانلود</h3>
+										</a>
+									</li>
+									<li>
+										<a href="http://torlangame.com/movies/">
+											<h3>ویدیو</h3>
 										</a>
 									</li>
 								</ul>
