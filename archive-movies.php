@@ -14,11 +14,6 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 
-			<article <?php post_class("post"); ?>>
-				<h1><?php the_archive_title(); ?></h1>
-				<p><?php the_archive_description(); ?></p>
-			</article>
-
 			<?php
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
