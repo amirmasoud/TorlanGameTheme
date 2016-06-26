@@ -40,6 +40,7 @@
 					'after'  => '</div>',
 				) );
 			?>
+			<br />
 			<a href="<?php echo get_post_meta(get_the_ID(), 'aparat_url', true) ?>"><i class="fa fa-link"></i> مشاهده ویدیو در کانال آپارات ما</a>
 		</div><!-- .entry-content -->
 		<footer class="entry-footer">
