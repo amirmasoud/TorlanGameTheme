@@ -141,10 +141,11 @@ function torlangame_the_posts_navigation() {
 	<?php
 }
 
-function torlangame_register_custom_recent_post_widget() {
+function torlangame_register_custom_widget() {
     register_widget( 'torlangame_Widget_Recent_Posts' );
+    register_widget( 'torlangame_Widget_Recent_Movies' );
 }
-add_action( 'widgets_init', 'torlangame_register_custom_recent_post_widget' );
+add_action( 'widgets_init', 'torlangame_register_custom_widget' );
 
 /**
  * Implement the Custom Header feature.
@@ -180,3 +181,8 @@ require get_template_directory() . '/inc/recent-post-widget.php';
  * Load video custom post type
  */
 require get_template_directory() . '/inc/video-post-type.php';
+
+/**
+ * Load custom recent movies widget.
+ */
+require get_template_directory() . '/inc/recent-movies-widget.php';
