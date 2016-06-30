@@ -54,11 +54,11 @@ class torlangame_Widget_Recent_Movies extends WP_Widget {
                 <!-- Mini Post -->
                     <article class="mini-post">
                         <header>
-                            <h3><a href="<?php esc_url( get_permalink() ) ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a></h3>
+                            <h3><a href="<?php echo esc_url( get_permalink() ) ?>"><?php if ( get_the_title() ) the_title(); else the_ID(); ?></a></h3>
                             <time class="published" datetime="<?php the_date( 'Y-m-d' ) ?>"><?php the_date( get_option('date_format') ) ?></time>
                             <a class="author" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo get_avatar( get_the_author_meta( 'ID' ), 38.4 ); ?></a>
                         </header>
-                        <a href="<?php esc_url( get_permalink() ); ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
+                        <a href="<?php echo esc_url( get_permalink() ); ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
                     </article>
             <?php endwhile; ?>
             </div>
