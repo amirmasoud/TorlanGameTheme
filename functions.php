@@ -135,7 +135,7 @@ function torlangame_the_posts_navigation() {
 			<li><?php next_posts_link( __( 'مطالب قبلی', 'torlangame' ) ); ?></li>
 			<?php endif; ?>
 			<?php if ( get_previous_posts_link() ) : ?>
-			<li><?php previous_posts_link( __( 'نطالب بعدی', 'torlangame' ) ); ?></li>
+			<li><?php previous_posts_link( __( 'مطالب بعدی', 'torlangame' ) ); ?></li>
 			<?php endif; ?>
 		</ul>
 	<?php
