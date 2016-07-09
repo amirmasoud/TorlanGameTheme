@@ -141,11 +141,35 @@ function torlangame_the_posts_navigation() {
 	<?php
 }
 
+/**
+ * Register custom widgets.
+ * 
+ * @return HTML
+ */
 function torlangame_register_custom_widget() {
     register_widget( 'torlangame_Widget_Recent_Posts' );
     register_widget( 'torlangame_Widget_Recent_Movies' );
 }
 add_action( 'widgets_init', 'torlangame_register_custom_widget' );
+
+/**
+ * Print author inforamtions
+ * 
+ * @return HTML
+ */
+function torlangame_author_info() {
+	?>
+	<article <?php post_class("post row"); ?>>
+		<div class="col-md-10 col-xs-12">
+			<h1><?php the_author(); ?></h1>
+			<p><?php the_author_meta( 'description' ); ?></p>
+		</div>
+		<div class="col-md-2 col-xs-12">
+			<?php echo get_avatar( get_the_author_meta( 'ID' ), 256 ) ?>
+		</div>
+	</article>
+	<?php
+}
 
 /**
  * Implement the Custom Header feature.
@@ -186,3 +210,8 @@ require get_template_directory() . '/inc/video-post-type.php';
  * Load custom recent movies widget.
  */
 require get_template_directory() . '/inc/recent-movies-widget.php';
+
+/**
+ * Load Download custom post type
+ */
+require get_template_directory() . '/inc/download-post-type.php';
