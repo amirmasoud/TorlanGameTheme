@@ -35,22 +35,22 @@ function torlangame_entry_footer() {
 
 	echo '<div class="row"><ul class="stats">';
 
-	if ( 'post' === get_post_type() || 'movies' === get_post_type() ) {
+	if ( ( 'post' === get_post_type() || 'movies' === get_post_type() ) && is_single() ) {
 		the_category();
 		echo '<ul class="tags-list">';
 		the_tags( '<li>', '</li><li>', '</li>' );
 		echo '</ul>';
 	}
 
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+/*	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<li>';
 
-		/* translators: %s: post title */
+		// translators: %s: post title
 		comments_popup_link(  0, 1, '%' );
 
 		echo '<span class="icon fa fa-comment"></span> ';
 		echo '</li>';
-	}
+	}*/
 
 /*	echo "<li>";
 	edit_post_link(
@@ -71,7 +71,9 @@ function torlangame_entry_footer() {
 		echo '</ul></div>';
 	}
 
-	torlangame_author_info();
+	if ( is_single() ) {
+		torlangame_author_info();
+	}
 }
 endif;
 
