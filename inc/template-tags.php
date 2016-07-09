@@ -33,23 +33,14 @@ if ( ! function_exists( 'torlangame_entry_footer' ) ) :
  */
 function torlangame_entry_footer() {
 
-	echo '<ul class="stats">';
-	// Hide category and tag text for pages.
-/*	if ( 'post' === get_post_type() ) {
-		echo '<li><span class="icon fa-folder"></span> ';
-		// translators: used between list items, there is a space after the comma
-		$categories_list = get_the_category_list( esc_html__( ', ', 'torlangame' ) );
-		if ( $categories_list && torlangame_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'torlangame' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-		echo '</li><li><span class="icon fa-tag"></span> ';
-		// translators: used between list items, there is a space after the comma
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'torlangame' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( '%1$s', 'torlangame' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-		echo "</li>";
-	}*/
+	echo '<div class="row"><ul class="stats">';
+
+	if ( 'post' === get_post_type() || 'movies' === get_post_type() ) {
+		the_category();
+		echo '<ul class="tags-list">';
+		the_tags( '<li>', '</li><li>', '</li>' );
+		echo '</ul>';
+	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<li>';
@@ -61,24 +52,26 @@ function torlangame_entry_footer() {
 		echo '</li>';
 	}
 
-	echo "<li>";
+/*	echo "<li>";
 	edit_post_link(
 		sprintf(
 			esc_html__( 'Edit %s', 'torlangame' ),
-			/* translators: %s: Name of current post */
+			// translators: %s: Name of current post
 			the_title( '<span class="screen-reader-text">"', '"</span>', false )
 		),
 		'<span class="edit-link">',
 		'</span>'
 	);
-	echo "</li>";
+	echo "</li>";*/
 
 	echo "</ul>";
 	if ( ! is_single() ) {
 		echo '<ul class="actions">';
 			echo '<li><a href="' . esc_url( get_permalink() ) . '" class="button big">ادامه مطلب</a></li>';
-		echo '</ul>';
+		echo '</ul></div>';
 	}
+
+	torlangame_author_info();
 }
 endif;
 
