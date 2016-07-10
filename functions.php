@@ -172,6 +172,19 @@ function torlangame_author_info() {
 }
 
 /**
+ * Post navigation with mini post.
+ * 
+ * @return HTML
+ */
+function torlangame_post_navigation() {
+	$args = array(
+		'next_text' => '<div class="post"><h1><i>بعدی:</i>   %title</h1></div>',
+		'prev_text' => '<div class="post"><h1><i>قبلی:</i>   %title</h1></div>',
+	);
+	the_post_navigation( $args );
+}
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
