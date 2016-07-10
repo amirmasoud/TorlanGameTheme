@@ -84,104 +84,35 @@ function torlangame_downloads_categories() {
 }
 add_action( 'init', 'torlangame_downloads_categories', 0 );
 
-
-/**
- * Add custom meta box for rate and publish year
- * @return void
- */
-function download_add_meta_box() {
-	add_meta_box('magnet_link', __('مگنت', 'torlangame'), 'magnet_link_meta_box_callback', 'downloads');
-	add_meta_box('direct_link', __('مستقیم', 'torlangame'), 'direct_link_meta_box_callback', 'downloads');
+add_filter( 'rwmb_meta_boxes', 'your_prefix_meta_boxes' );
+function your_prefix_meta_boxes( $meta_boxes ) {
+    $meta_boxes[] = array(
+        'title'      => __( 'Test Meta Box', 'torlangame' ),
+        'post_types' => 'downloads',
+        'fields'     => array(
+            array(
+                'id'   => 'magnet_link',
+                'name' => __( 'Magnet Link', 'torlangame' ),
+                'type' => 'text',
+                'clone' => true,
+            ),
+            array(
+                'id'   => 'direct_link',
+                'name' => __( 'Direct Link', 'torlangame' ),
+                'type' => 'text',
+                'clone' => true,
+            ),
+            array(
+                'id'   => 'game_gallery',
+                'name' => __( 'Gallery', 'torlangame' ),
+                'type' => 'image_advanced',
+            ),
+            array(
+                'id'   => 'game_thumbnail',
+                'name' => __( 'Thumbnail', 'torlangame' ),
+                'type' => 'image_advanced',
+            ),
+        ),
+    );
+    return $meta_boxes;
 }
-
-/**
- * Callback function of magent link, to generate inputs on downloads post type
- * @param  stdObj $post
- * @return HTML
- */
-function magnet_link_meta_box_callback($post) {
-	// Add a nonce field so we can check for it later.
-	wp_nonce_field('download_save_meta_box_data', 'download_meta_box_nonce');
-	/*
-	 * Use get_post_meta() to retrieve an existing value
-	 * from the database and use the value for the form.
-	 */
-	$magnet_link_value = get_post_meta($post->ID, 'magnet_link', true);
-	// generate input of type number for rating downloads
-	// with range of 0-10 and step 0.1
-	echo '<label for="magnet_link">';
-	_e( 'لینک مگنت', 'torlangame' );
-	echo '</label> ';
-	echo '<input type="url" id="magnet_link" name="magnet_link" value="' . esc_attr($magnet_link_value) . '" />';
-}
-add_action('add_meta_boxes', 'download_add_meta_box');
-
-/**
- * Callback function of direct link, to generate inputs on downloads post type
- * @param  stdObj $post
- * @return HTML
- */
-function direct_link_meta_box_callback($post) {
-	// Add a nonce field so we can check for it later.
-	wp_nonce_field('download_save_meta_box_data', 'download_meta_box_nonce');
-	/*
-	 * Use get_post_meta() to retrieve an existing value
-	 * from the database and use the value for the form.
-	 */
-	$magnet_link_value = get_post_meta($post->ID, 'direct_link', true);
-	// generate input of type number for rating downloads
-	// with range of 0-10 and step 0.1
-	echo '<label for="direct_link">';
-	_e( 'لینک مستقیم', 'torlangame' );
-	echo '</label> ';
-	echo '<input type="url" id="direct_link" name="direct_link" value="' . esc_attr($direct_link_value) . '" />';
-}
-add_action('add_meta_boxes', 'download_add_meta_box');
-
-/**
- * When the post is saved, saves our custom data.
- *
- * @param int $post_id The ID of the post being saved.
- */
-function download_save_meta_box_data($post_id) {
-	/*
-	 * We need to verify this came from our screen and with proper authorization,
-	 * because the save_post action can be triggered at other times.
-	 */
-	// Check if our nonce is set.
-	if ( ! isset( $_POST['download_meta_box_nonce'] ) ) {
-		return;
-	}
-	// Verify that the nonce is valid.
-	if ( ! wp_verify_nonce( $_POST['download_meta_box_nonce'], 'download_save_meta_box_data' ) ) {
-		return;
-	}
-	// If this is an autosave, our form has not been submitted, so we don't want to do anything.
-	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-		return;
-	}
-	// Check the user's permissions.
-	if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
-		if ( ! current_user_can( 'edit_page', $post_id ) ) {
-			return;
-		}
-	} else {
-		if ( ! current_user_can( 'edit_post', $post_id ) ) {
-			return;
-		}
-	}
-	/* OK, it's safe for us to save the data now. */
-	
-	// Make sure that it is set.
-	if ( ! isset( $_POST['magnet_link'] ) || ! isset( $_POST['direct_link'] ) ) {
-		return;
-	}
-
-	// Sanitize user input.
-	$magnet_link_data = sanitize_text_field( $_POST['magnet_link'] );
-	$magnet_link_data = sanitize_text_field( $_POST['direct_link'] );
-	// Update the meta field in the database.
-	update_post_meta( $post_id, 'magnet_link', $magnet_link_data );
-	update_post_meta( $post_id, 'direct_link', $direct_link_data );
-}
-add_action( 'save_post', 'download_save_meta_box_data' );
