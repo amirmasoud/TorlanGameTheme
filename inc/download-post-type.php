@@ -103,11 +103,6 @@ function your_prefix_meta_boxes( $meta_boxes ) {
                 'clone' => true,
             ),
             array(
-                'id'   => 'game_gallery',
-                'name' => __( 'Gallery', 'torlangame' ),
-                'type' => 'image_advanced',
-            ),
-            array(
                 'id'   => 'game_thumbnail',
                 'name' => __( 'Thumbnail', 'torlangame' ),
                 'type' => 'image_advanced',

@@ -40,27 +40,37 @@
 					'after'  => '</div>',
 				) );
 			?>
-			<br />
+
+			<?php if ( is_single() ) { ?>
 			<div class="download-box row">
 				<div class="game-download col-md-8 col-xs-12">
-					<?php if (rwmb_meta( 'magnet_link' )[0] != '') { ?>
-					<p><a href="<?php echo rwmb_meta( 'magnet_link' )[0]; ?>"><i class="fa fa-magnet" aria-hidden="true"></i> دانلود با تورنت</a> <a href="http://torlangame.com/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d8%a8%d9%87-%da%a9%d9%85%da%a9-%d8%aa%d9%88%d8%b1%d9%86%d8%aa-%d8%af%d8%b1-%da%a9%d9%85%d8%aa%d8%b1-%d8%a7%d8%b2-3-%d8%af%d9%82/" title="راهنمای استفاده از تورنت"><i class="fa fa-question-circle" aria-hidden="true"></i></a></p>
-					<?php } ?>
-					<p><a href="#"><i class="fa fa-cloud-download" aria-hidden="true"></i> دانلود با لینک مستقیم</a></p>
+					<?php 
+					if (rwmb_meta( 'magnet_link' )[0] != '') { 
+						$value = rwmb_meta( "magnet_link" )[0];
+						echo '<p><a href="' . $value . '"><i class="fa fa-magnet" aria-hidden="true"></i> دانلود با تورنت</a> <a href="http://torlangame.com/%d8%a2%d9%85%d9%88%d8%b2%d8%b4-%d8%af%d8%a7%d9%86%d9%84%d9%88%d8%af-%d8%a8%d9%87-%da%a9%d9%85%da%a9-%d8%aa%d9%88%d8%b1%d9%86%d8%aa-%d8%af%d8%b1-%da%a9%d9%85%d8%aa%d8%b1-%d8%a7%d8%b2-3-%d8%af%d9%82/" title="راهنمای استفاده از تورنت"><i class="fa fa-question-circle" aria-hidden="true"></i></a></p>';
+					} 
+					$value = get_post_meta( get_the_ID(), 'direct_link', true );
+					if ( !empty( $value ) ) {
+						echo '<p><i class="fa fa-cloud-download" aria-hidden="true"></i> دانلود با لینک مستقیم</p>';
+					    foreach ( $value as $subvalue ) {
+					        echo '<p><a href="$subvalue">' . $subvalue . '</a></p>';
+					    }
+					}
+					$game_thumbnail = rwmb_meta( 'game_thumbnail' );
+					?>
 				</div>
-				<div class="game-cover col-md-4 col-xs-12"><img class="test-popup-link" src="https://chakosh.ir/uploads/portfolios/original/4wCvccPmcSwEwlngXaju.jpg" /></div>
+				<div class="game-cover col-md-4 col-xs-12">
+					<?php 
+					foreach ($game_thumbnail as $gt) {
+						echo '<img src="' . $gt["full_url"] . '" data-featherlight="' . $gt["full_url"] . '" />';
+						break;
+					}
+					?>
+				</div>
 			</div>
+			<?php } ?>
 		</div><!-- .entry-content -->
 		<footer class="entry-footer">
 			<?php torlangame_entry_footer(); ?>
 		</footer><!-- .entry-footer -->
 	</article>
-
-<script type="text/javascript">
-( function( $ ) {
-	$('.test-popup-link').magnificPopup({
-		type: 'image'
-		// other options
-	});
-});
-</script>

@@ -33,7 +33,7 @@ if ( ! function_exists( 'torlangame_entry_footer' ) ) :
  */
 function torlangame_entry_footer() {
 
-	echo '<div class="row"><ul class="stats">';
+	echo '<div class="row width-100"><ul class="stats">';
 
 	if ( ( 'post' === get_post_type() || 'movies' === get_post_type() ) && is_single() ) {
 		the_category();
