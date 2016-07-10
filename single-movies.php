@@ -18,6 +18,7 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'movies' );
 
 			//the_post_navigation();
+			torlangame_post_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -42,5 +43,5 @@ get_header(); ?>
 
 
 <?php
-//get_sidebar();
+get_sidebar();
 get_footer();
