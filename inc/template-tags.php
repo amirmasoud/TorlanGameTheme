@@ -19,7 +19,7 @@ function torlangame_posted_on() {
 		/*esc_html_x( '%s', 'post author', 'torlangame' ), 
 		'<a class="author" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_avatar( get_the_author_meta( 'ID' ), 44.8 ) . '<span class="name">' . esc_html( get_the_author() ) . '</span></a>'*/
 		esc_html_x( '%s', 'post author', 'torlangame' ), 
-		'<a class="author" href="#">' . get_avatar( get_the_author_meta( 'ID' ), 44.8 ) . '<span class="name">' . esc_html( get_the_author() ) . '</span></a>'
+		'<a class="author" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . get_avatar( get_the_author_meta( 'ID' ), 44.8 ) . '<span class="name">' . esc_html( get_the_author() ) . '</span></a>'
 	);
 
 	echo $time_string . $byline; // WPCS: XSS OK.

@@ -159,7 +159,7 @@ add_action( 'widgets_init', 'torlangame_register_custom_widget' );
  */
 function torlangame_author_info() {
 	?>
-	<article <?php post_class("post row"); ?>>
+	<article class="post row">
 		<div class="col-md-10 col-xs-12">
 			<h1><?php the_author(); ?></h1>
 			<p><?php the_author_meta( 'description' ); ?></p>
