@@ -8,7 +8,6 @@
  */
 
 get_header(); ?>
-
 	<div id="main">
 
 		<?php
