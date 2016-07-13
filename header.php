@@ -35,7 +35,7 @@
 								<li><a href="http://torlangame.com/category/%D9%88%DB%8C%DA%98%D9%87-%DA%AF%DB%8C%D9%85%D8%B1-%D9%87%D8%A7/"><i class="fa fa-gamepad" aria-hidden="true"></i> ویژه گیمرها</a></li>
 								<li><a href="http://torlangame.com/category/%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7-%D9%88-%D8%AA%D9%82%D9%84%D8%A8/"><i class="fa fa-motorcycle" aria-hidden="true"></i> راهنما و تقلب</a></li>
 								<li><a href="http://torlangame.com/category/%D8%B3%DB%8C%D8%B3%D8%AA%D9%85-%D9%85%D9%88%D8%B1%D8%AF-%D9%86%DB%8C%D8%A7%D8%B2/"><i class="fa fa-laptop" aria-hidden="true"></i> سیستم مورد نیاز</a></li>
-								<li><a href="http://torlangame.com/category/%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF/"><i class="fa fa-cloud-download" aria-hidden="true"></i> دانلود</a></li>
+								<li><a href="http://torlangame.com/downloads/"><i class="fa fa-cloud-download" aria-hidden="true"></i> دانلود</a></li>
 								<li><a href="http://torlangame.com/movies/"><i class="fa fa-video-camera" aria-hidden="true"></i> ویدیو</a></li>
 							</ul>
 						</nav>
@@ -88,7 +88,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="http://torlangame.com/category/%D8%AF%D8%A7%D9%86%D9%84%D9%88%D8%AF/">
+										<a href="http://torlangame.com/downloads/">
 											<h3><i class="fa fa-cloud-download" aria-hidden="true"></i> دانلود</h3>
 										</a>
 									</li>
