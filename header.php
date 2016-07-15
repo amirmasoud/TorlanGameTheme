@@ -42,13 +42,13 @@
 						<nav class="main">
 							<ul>
 								<li class="search">
-									<a class="fa-search" href="#search">Search</a>
+									<a class="fa-search" href="#search">جستجو</a>
 									<form id="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 										<input type="text" name="s" placeholder="<?php _e("جستجو", "toelangame") ?>" value="<?php echo get_search_query(); ?>" />
 									</form>
 								</li>
 								<li class="menu">
-									<a class="fa-bars" href="#menu">Menu</a>
+									<a class="fa-bars" href="#menu">منو</a>
 								</li>
 							</ul>
 						</nav>
