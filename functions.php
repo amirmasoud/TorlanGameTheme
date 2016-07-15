@@ -149,6 +149,7 @@ function torlangame_the_posts_navigation() {
 function torlangame_register_custom_widget() {
     register_widget( 'torlangame_Widget_Recent_Posts' );
     register_widget( 'torlangame_Widget_Recent_Movies' );
+    register_widget( 'torlangame_Widget_Recent_Downloads' );
 }
 add_action( 'widgets_init', 'torlangame_register_custom_widget' );
 
@@ -228,3 +229,8 @@ require get_template_directory() . '/inc/recent-movies-widget.php';
  * Load Download custom post type
  */
 require get_template_directory() . '/inc/download-post-type.php';
+
+/**
+ * Load custom recent movies widget.
+ */
+require get_template_directory() . '/inc/recent-downloads-widget.php';
