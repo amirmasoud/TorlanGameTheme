@@ -64,9 +64,19 @@
 						} else {
 							echo '<p><i class="fa fa-cloud-download" aria-hidden="true"></i> دانلود با لینک مستقیم</p>';
 						}
-					    foreach ( $value as $subvalue ) {
-					        echo '<p><a href="$subvalue">' . $subvalue . '</a></p>';
-					    }
+						$torlangame_section = 0;
+						$torlangame_count = count($value);
+						if ($torlangame_count == 1) {
+							foreach ( $value as $subvalue ) {
+								$i++;
+							    echo '<p><a href="$subvalue">' . $subvalue . '</a></p>';
+							}
+						} else {
+							foreach ( $value as $subvalue ) {
+								$torlangame_section++;
+							    echo '<p>' . 'بخش ' . $torlangame_section . ': ' . '<a href="$subvalue">' . $subvalue . '</a></p>';
+							}
+						}
 					}
 					$game_thumbnail = rwmb_meta( 'game_thumbnail' );
 					?>
