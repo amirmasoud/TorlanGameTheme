@@ -47,7 +47,7 @@ class torlangame_Widget_Recent_Downloads extends WP_Widget {
         if ($r->have_posts()) :
 ?>
         <?php echo $before_widget; ?>
-        <?php if ( $title ) echo $before_title . $title . $after_title; ?>
+        <?php if ( $title ) echo $before_title . '<a href="' .  get_post_type_archive_link( 'downloads' ) . '">' . $title . '</a>' . $after_title; ?>
         <section>
             <div class="mini-posts">
             <?php while ( $r->have_posts() ) : $r->the_post(); ?>
