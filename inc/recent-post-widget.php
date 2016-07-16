@@ -48,7 +48,7 @@ class torlangame_Widget_Recent_Posts extends WP_Widget {
         if ($r->have_posts()) :
 ?>
         <?php echo $before_widget; ?>
-        <?php if ( $title ) echo $before_title . $title . $after_title; ?>
+        <?php if ( $title ) echo $before_title . '<a href="' . get_category_link( $category ) . '">' . $title . '</a>' . $after_title; ?>
         <section>
             <div class="mini-posts">
             <?php while ( $r->have_posts() ) : $r->the_post(); ?>
