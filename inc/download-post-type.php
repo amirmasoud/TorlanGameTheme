@@ -97,10 +97,20 @@ function your_prefix_meta_boxes( $meta_boxes ) {
                 'clone' => true,
             ),
             array(
+                'id'   => 'magnet_link_size',
+                'name' => __( 'Magnet Size', 'torlangame' ),
+                'type' => 'text',
+            ),
+            array(
                 'id'   => 'direct_link',
                 'name' => __( 'Direct Link', 'torlangame' ),
                 'type' => 'text',
                 'clone' => true,
+            ),
+            array(
+                'id'   => 'direct_link_size',
+                'name' => __( 'Direct Size', 'torlangame' ),
+                'type' => 'text',
             ),
             array(
                 'id'   => 'game_thumbnail',
