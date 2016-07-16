@@ -186,6 +186,28 @@ function torlangame_post_navigation() {
 }
 
 /**
+ * Add featured image to RSS feed.
+ * 
+ * @param  string $excerpt
+ * @return string
+ */
+function torlangame_image_in_feed( $excerpt ) {
+ 
+    global $post;
+ 
+    if ( has_post_thumbnail( $post->ID ) ){
+        $image = get_the_post_thumbnail( $post->ID, 'page-thumb', array( 'style' => 'margin: 10px auto' ) );
+    } else {
+        $image = '<div style="margin: 10px auto"><img src="https://torlangame.com/wp-content/themes/torlangame/images/torlangame-logo.png"></div>';
+    }
+ 
+    $excerpt = $image . $excerpt;
+ 
+    return $excerpt;
+} 
+add_filter( 'the_excerpt_rss', 'torlangame_image_in_feed', 10 );
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
