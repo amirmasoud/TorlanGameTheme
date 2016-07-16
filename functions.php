@@ -96,6 +96,36 @@ function torlangame_widgets_init() {
 		'before_title'  => '<h2 class="widget-title fancy"><span>',
 		'after_title'   => '</span></h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'home page 1', 'torlangame' ),
+		'id'            => 'home-1',
+		'description'   => esc_html__( 'Add widgets here.', 'torlangame' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title fancy"><span>',
+		'after_title'   => '</span></h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'home page 2', 'torlangame' ),
+		'id'            => 'home-2',
+		'description'   => esc_html__( 'Add widgets here.', 'torlangame' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title fancy"><span>',
+		'after_title'   => '</span></h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'home page 3', 'torlangame' ),
+		'id'            => 'home-3',
+		'description'   => esc_html__( 'Add widgets here.', 'torlangame' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title fancy"><span>',
+		'after_title'   => '</span></h2>',
+	) );
 }
 add_action( 'widgets_init', 'torlangame_widgets_init' );
 
