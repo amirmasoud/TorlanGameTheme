@@ -149,6 +149,7 @@ function torlangame_the_posts_navigation() {
 function torlangame_register_custom_widget() {
     register_widget( 'torlangame_Widget_Recent_Posts' );
     register_widget( 'torlangame_Widget_Recent_Movies' );
+    register_widget( 'torlangame_Widget_Recent_Downloads' );
 }
 add_action( 'widgets_init', 'torlangame_register_custom_widget' );
 
@@ -183,6 +184,28 @@ function torlangame_post_navigation() {
 	);
 	the_post_navigation( $args );
 }
+
+/**
+ * Add featured image to RSS feed.
+ * 
+ * @param  string $excerpt
+ * @return string
+ */
+function torlangame_image_in_feed( $excerpt ) {
+ 
+    global $post;
+ 
+    if ( has_post_thumbnail( $post->ID ) ){
+        $image = get_the_post_thumbnail( $post->ID, 'page-thumb', array( 'style' => 'margin: 10px auto' ) );
+    } else {
+        $image = '<div style="margin: 10px auto"><img src="https://torlangame.com/wp-content/themes/torlangame/images/torlangame-logo.png"></div>';
+    }
+ 
+    $excerpt = $image . $excerpt;
+ 
+    return $excerpt;
+} 
+add_filter( 'the_excerpt_rss', 'torlangame_image_in_feed', 10 );
 
 /**
  * Implement the Custom Header feature.
@@ -228,3 +251,8 @@ require get_template_directory() . '/inc/recent-movies-widget.php';
  * Load Download custom post type
  */
 require get_template_directory() . '/inc/download-post-type.php';
+
+/**
+ * Load custom recent movies widget.
+ */
+require get_template_directory() . '/inc/recent-downloads-widget.php';
