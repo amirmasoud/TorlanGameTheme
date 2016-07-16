@@ -4,7 +4,7 @@ get_header(); ?>
 	<div id="main">
 		<div class="row">
 			<div class="col-md-9 col-xs-12 margin-top-20">
-				<?php echo do_shortcode("[metaslider id=3508]"); ?>
+				<?php echo do_shortcode("[metaslider id=4883]"); ?>
 
 				<div class="row">
 					<div class="col-md-6 col-xs-12 margin-top-20">
