@@ -29,16 +29,13 @@ get_header(); ?>
 
 		<div class="row">
 			<div class="col-md-4 col-xs-12">
-				<h2 class="widget-title fancy"><span><a href="<?php echo get_category_link( get_cat_ID( 'خبر' ) ) ?>">آخرین خبر ها</a></span></h2>
-				<?php the_widget( 'torlangame_Widget_Recent_Posts', array( 'number' => 5, 'category' => get_cat_ID( 'خبر' ) ) ) ?>
+				<?php dynamic_sidebar( 'home-1' ); ?>
 			</div>
 			<div class="col-md-4 col-xs-12">
-				<h2 class="widget-title fancy"><span><a href="<?php echo get_category_link( get_cat_ID( 'راهنما و تقلب' ) ) ?>">آخرین راهنما و تقلب ها</a></span></h2>
-				<?php the_widget( 'torlangame_Widget_Recent_Posts', array( 'number' => 5, 'category' => get_cat_ID( 'راهنما و تقلب' ) ) ) ?>
+				<?php dynamic_sidebar( 'home-2' ); ?>
 			</div>
 			<div class="col-md-4 col-xs-12">
-				<h2 class="widget-title fancy"><span><a href="<?php echo get_post_type_archive_link( 'downloads' ) ?>">آخرین دانلود ها</a></span></h2>
-				<?php the_widget( 'torlangame_Widget_Recent_Downloads', 'number=5' ) ?>
+				<?php dynamic_sidebar( 'home-3' ); ?>
 			</div>
 		</div>
 		<footer class="footer-distributed">
