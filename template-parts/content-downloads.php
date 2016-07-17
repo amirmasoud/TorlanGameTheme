@@ -69,12 +69,12 @@
 						if ($torlangame_count == 1) {
 							foreach ( $value as $subvalue ) {
 								$i++;
-							    echo '<p><a href="$subvalue">' . $subvalue . '</a></p>';
+							    echo '<p><a href="' . $subvalue . '">' . $subvalue . '</a></p>';
 							}
 						} else {
 							foreach ( $value as $subvalue ) {
 								$torlangame_section++;
-							    echo '<p>' . 'بخش ' . $torlangame_section . ': ' . '<a href="$subvalue">' . $subvalue . '</a></p>';
+							    echo '<p>' . 'بخش ' . $torlangame_section . ': ' . '<a href="' . $subvalue . '">' . $subvalue . '</a></p>';
 							}
 						}
 					}
