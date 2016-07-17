@@ -9,7 +9,7 @@
 
 get_header(); ?>
 	<div id="main">
-
+		<?php torlangame_breadcrumbs(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 

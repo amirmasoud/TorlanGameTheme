@@ -13,6 +13,7 @@ get_header(); ?>
 
 		<?php
 		if ( have_posts() ) : ?>
+			<?php torlangame_breadcrumbs(); ?>
 
 			<article <?php post_class("post"); ?>>
 				<header>

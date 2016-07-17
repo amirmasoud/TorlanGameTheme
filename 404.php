@@ -10,6 +10,7 @@
 get_header(); ?>
 <!-- Main -->
 <div id="main">
+	<?php torlangame_breadcrumbs(); ?>
 	<article <?php post_class("error-404 not-found post"); ?>>
 		<header>
 			<div class="title">
