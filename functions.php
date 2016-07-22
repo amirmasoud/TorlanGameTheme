@@ -468,6 +468,53 @@ function torlangame_breadcrumbs() {
 }
 
 /**
+ * Social share icons.
+ * 
+ * @param  string $content
+ * @return HTML
+ */
+function torlangame_social_sharing_buttons($content) {
+    if(is_singular() || is_home()){
+    
+        // Get current page URL 
+        $torlangame_URL = wp_get_shortlink();
+ 
+        // Get current page title
+        $torlangame_Title = str_replace( ' ', '%20', get_the_title());
+        
+        // Get Post Thumbnail for pinterest
+        $torlangame_Thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+ 
+        // Construct sharing URL without using any script
+        $twitterURL = 'https://twitter.com/intent/tweet?text='.$torlangame_Title.'&amp;url='.$torlangame_URL.'&amp;توسط=TorlanGame';
+        $facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$torlangame_URL;
+        $googleURL = 'https://plus.google.com/share?url='.$torlangame_URL;
+        $whatsappURL = 'whatsapp://send?text='.$torlangame_Title . ' ' . $torlangame_URL;
+        $linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$torlangame_URL.'&amp;title='.$torlangame_Title;
+        $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$torlangame_URL.'&amp;media='.$torlangame_Thumbnail[0].'&amp;description='.$torlangame_Title;
+        $telegramURL = 'https://telegram.me/share/url?url=' . $torlangame_URL;
+ 
+        // Add sharing button at the end of page/page content
+        $content .= '<div class="torlangame-social">';
+        $content .= '<h3>به اشتراک گذاشتن در</h3>';
+        $content .= '<a class="torlangame-link torlangame-telegram" href="'.$telegramURL.'" target="_blank"><i class="fa fa-send" aria-hidden="true"></i> تلگرام</a>';
+        $content .= '<a class="torlangame-link torlangame-whatsapp" href="'.$whatsappURL.'" target="_blank"><i class="fa fa-whatsapp" aria-hidden="true"></i> واتس اپ</a>';
+        $content .= '<a class="torlangame-link torlangame-twitter" href="'. $twitterURL .'" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> توییتر</a>';
+        $content .= '<a class="torlangame-link torlangame-facebook" href="'.$facebookURL.'" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> فیسبوک</a>';
+        $content .= '<a class="torlangame-link torlangame-googleplus" href="'.$googleURL.'" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> گوگل پلاس</a>';
+        $content .= '<a class="torlangame-link torlangame-pinterest" href="'.$pinterestURL.'" target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i> پینترست</a>';
+        $content .= '<a class="torlangame-link torlangame-linkedin" href="'.$linkedInURL.'" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i> لینکدین</a>';
+        $content .= '</div>';
+        
+        return $content;
+    }else{
+        // if not a post/page then don't include sharing button
+        return $content;
+    }
+};
+add_filter( 'the_content', 'torlangame_social_sharing_buttons');
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
