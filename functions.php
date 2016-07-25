@@ -514,6 +514,72 @@ function torlangame_social_sharing_buttons($content) {
 };
 add_filter( 'the_content', 'torlangame_social_sharing_buttons');
 
+function torlangame_posts_telegram_bot( $ID, $post ) {
+    require 'inc/telegram.php';
+    if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
+        $chat_id = '@dhjdhdgjfhkdawop';
+    } else {
+        $chat_id = '@torlangameofficial';
+    }
+    $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
+    $text = $post->post_title;
+    $text .= PHP_EOL . 'جزئيات بيشتر در سايت تورلان گيم' . 
+             PHP_EOL . wp_get_shortlink() . 
+             PHP_EOL . '@TorlanGameOfficial';
+    
+    $bot = new telegramBot($token);
+    if (has_post_thumbnail($post)) {
+        $thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id( $ID ) );
+        $bot->sendPhoto( $chat_id, $thumbnail_url, $text );
+    } else {
+        $bot->sendMessage($chat_id, $text);
+    }
+}
+add_action( 'publish_post',  'torlangame_posts_telegram_bot', 10, 2 );
+
+function torlangame_movies_telegram_bot( $ID, $post ) {
+    require 'inc/telegram.php';
+    if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
+        $chat_id = '@dhjdhdgjfhkdawop';
+    } else {
+        $chat_id = '@torlangameofficial';
+    }
+    $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
+    $text = $post->post_title;
+    $text .= PHP_EOL . 'مشاهده ویدیو های بيشتر در سايت تورلان گيم' . 
+             PHP_EOL . get_post_meta( $ID, 'aparat_url', true) . 
+             PHP_EOL . 'torlangame.com' .
+             PHP_EOL . '@TorlanGameOfficial';
+    
+    $bot = new telegramBot($token);
+    $bot->sendMessage($chat_id, $text);
+}
+add_action( 'publish_movies',  'torlangame_movies_telegram_bot', 10, 2 );
+
+function torlangame_downloads_telegram_bot( $ID, $post ) {
+    require 'inc/telegram.php';
+    if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
+        $chat_id = '@dhjdhdgjfhkdawop';
+    } else {
+        $chat_id = '@torlangameofficial';
+    }
+    $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
+    $text = $post->post_title;
+    $text .= PHP_EOL . 'لینک های دانلود در سايت تورلان گيم' . 
+             PHP_EOL . wp_get_shortlink() . 
+             PHP_EOL . 'torlangame.com' .
+             PHP_EOL . '@TorlanGameOfficial';
+    
+    $bot = new telegramBot($token);
+    if (has_post_thumbnail($post)) {
+        $thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id( $ID ) );
+        $bot->sendPhoto( $chat_id, $thumbnail_url, $text );
+    } else {
+        $bot->sendMessage($chat_id, $text);
+    }
+}
+add_action( 'publish_downloads',  'torlangame_downloads_telegram_bot', 10, 2 );
+
 /**
  * Implement the Custom Header feature.
  */
