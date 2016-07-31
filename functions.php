@@ -475,6 +475,7 @@ function torlangame_breadcrumbs() {
  */
 function torlangame_social_sharing_buttons($content) {
     if(is_singular() || is_home()){
+        global $post;
     
         // Get current page URL 
         $torlangame_URL = wp_get_shortlink();
@@ -483,7 +484,11 @@ function torlangame_social_sharing_buttons($content) {
         $torlangame_Title = str_replace( ' ', '%20', get_the_title());
         
         // Get Post Thumbnail for pinterest
-        $torlangame_Thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+        if ( has_post_thumbnail( $post ) ) {
+            $torlangame_Thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' )[0];
+        } else {
+            $torlangame_Thumbnail = '';
+        }
  
         // Construct sharing URL without using any script
         $twitterURL = 'https://twitter.com/intent/tweet?text='.$torlangame_Title.'&amp;url='.$torlangame_URL.'&amp;توسط=TorlanGame';
@@ -491,7 +496,7 @@ function torlangame_social_sharing_buttons($content) {
         $googleURL = 'https://plus.google.com/share?url='.$torlangame_URL;
         $whatsappURL = 'whatsapp://send?text='.$torlangame_Title . ' ' . $torlangame_URL;
         $linkedInURL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$torlangame_URL.'&amp;title='.$torlangame_Title;
-        $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$torlangame_URL.'&amp;media='.$torlangame_Thumbnail[0].'&amp;description='.$torlangame_Title;
+        $pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$torlangame_URL.'&amp;media='.$torlangame_Thumbnail.'&amp;description='.$torlangame_Title;
         $telegramURL = 'https://telegram.me/share/url?url=' . $torlangame_URL;
  
         // Add sharing button at the end of page/page content
