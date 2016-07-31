@@ -517,7 +517,7 @@ function torlangame_social_sharing_buttons($content) {
         return $content;
     }
 };
-add_filter( 'the_content', 'torlangame_social_sharing_buttons');
+add_filter( 'wp_link_pages', 'torlangame_social_sharing_buttons');
 
 function torlangame_posts_telegram_bot( $ID, $post ) {
     require 'inc/telegram.php';

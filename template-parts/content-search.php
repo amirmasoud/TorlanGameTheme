@@ -23,7 +23,11 @@
 		<?php
 		endif; ?>
 	</header>
-	<a href="<?php echo esc_url( get_permalink() ); ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
+	<?php if ( is_single() ) { ?>
+		<a href="#" data-featherlight="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0] ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
+	<?php } else { ?>
+		<a href="<?php echo esc_url( get_permalink() ); ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
+	<?php } ?>
 	<div class="entry-content">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-content -->

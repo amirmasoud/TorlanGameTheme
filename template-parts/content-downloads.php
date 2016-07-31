@@ -34,15 +34,11 @@
 					wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'torlangame' ), array( 'span' => array( 'class' => array() ) ) ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
-
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'torlangame' ),
-					'after'  => '</div>',
-				) );
 			?>
 
 			<?php if ( is_single() ) { ?>
 			<div class="download-box row">
+				<a href="#" data-featherlight="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0] ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
 				<div class="game-download col-md-8 col-xs-12">
 					<?php 
 					if (rwmb_meta( 'magnet_link' )[0] != '') { 
@@ -91,6 +87,13 @@
 				</div>
 			</div>
 			<?php } ?>
+
+			<?php
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'torlangame' ),
+					'after'  => '</div>',
+				) );
+			?>
 		</div><!-- .entry-content -->
 		<footer class="entry-footer">
 			<?php torlangame_entry_footer(); ?>
