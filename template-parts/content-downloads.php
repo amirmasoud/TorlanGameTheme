@@ -19,14 +19,17 @@
 				} else {
 					the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 				}
-			if ( 'downloads' === get_post_type() ) : ?>
+			?>
 			</div>
 			<div class="meta">
 				<?php torlangame_posted_on(); ?>
 			</div>
-			<?php
-			endif; ?>
 		</header>
+		<?php if ( is_single() ) { ?>
+			<a href="#" data-featherlight="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0] ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
+		<?php } else { ?>
+			<a href="<?php echo esc_url( get_permalink() ); ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
+		<?php } ?>
 		<div class="entry-content">
 			<?php
 				the_content( sprintf(
@@ -38,7 +41,6 @@
 
 			<?php if ( is_single() ) { ?>
 			<div class="download-box row">
-				<a href="#" data-featherlight="<?php echo wp_get_attachment_image_src(get_post_thumbnail_id(), 'full', true)[0] ?>" class="image featured" rel="bookmark"><?php the_post_thumbnail( 'torlangame-article-thumb' ); ?></a>
 				<div class="game-download col-md-8 col-xs-12">
 					<?php 
 					if (rwmb_meta( 'magnet_link' )[0] != '') { 
