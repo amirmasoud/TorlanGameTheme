@@ -519,13 +519,14 @@ function torlangame_social_sharing_buttons($content) {
 };
 add_filter( 'wp_link_pages', 'torlangame_social_sharing_buttons');
 
+$torlangame_whitelist = array(
+    '127.0.0.1',
+    '::1'
+);
+
 function torlangame_posts_telegram_bot( $ID, $post ) {
     require 'inc/telegram.php';
-    if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
-        $chat_id = '@dhjdhdgjfhkdawop';
-    } else {
-        $chat_id = '@torlangameofficial';
-    }
+    $chat_id = '@torlangameofficial';
     $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
     $text = $post->post_title;
     $text .= PHP_EOL . 'جزئيات بيشتر در سايت تورلان گيم' . 
@@ -543,12 +544,8 @@ function torlangame_posts_telegram_bot( $ID, $post ) {
 add_action( 'publish_post',  'torlangame_posts_telegram_bot', 10, 2 );
 
 function torlangame_movies_telegram_bot( $ID, $post ) {
-    require 'inc/telegram.php';
-    if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
-        $chat_id = '@dhjdhdgjfhkdawop';
-    } else {
-        $chat_id = '@torlangameofficial';
-    }
+    require 'inc/telegram';
+    $chat_id = '@torlangameofficial';
     $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
     $text = $post->post_title;
     $text .= PHP_EOL . 'مشاهده ویدیو های بيشتر در سايت تورلان گيم' . 
@@ -562,12 +559,8 @@ function torlangame_movies_telegram_bot( $ID, $post ) {
 add_action( 'publish_movies',  'torlangame_movies_telegram_bot', 10, 2 );
 
 function torlangame_downloads_telegram_bot( $ID, $post ) {
-    require 'inc/telegram.php';
-    if ( $_SERVER['SERVER_NAME'] == 'localhost' ) {
-        $chat_id = '@dhjdhdgjfhkdawop';
-    } else {
-        $chat_id = '@torlangameofficial';
-    }
+    require 'inc/telegram';
+    $chat_id = '@torlangameofficial';
     $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
     $text = $post->post_title;
     $text .= PHP_EOL . 'لینک های دانلود در سايت تورلان گيم' . 
