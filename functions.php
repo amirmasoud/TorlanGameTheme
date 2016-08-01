@@ -544,7 +544,7 @@ function torlangame_posts_telegram_bot( $ID, $post ) {
 add_action( 'publish_post',  'torlangame_posts_telegram_bot', 10, 2 );
 
 function torlangame_movies_telegram_bot( $ID, $post ) {
-    require 'inc/telegram';
+    require 'inc/telegram.php';
     $chat_id = '@torlangameofficial';
     $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
     $text = $post->post_title;
@@ -559,7 +559,7 @@ function torlangame_movies_telegram_bot( $ID, $post ) {
 add_action( 'publish_movies',  'torlangame_movies_telegram_bot', 10, 2 );
 
 function torlangame_downloads_telegram_bot( $ID, $post ) {
-    require 'inc/telegram';
+    require 'inc/telegram.php';
     $chat_id = '@torlangameofficial';
     $token = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
     $text = $post->post_title;
