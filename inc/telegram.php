@@ -473,3 +473,122 @@ class telegramBot
 }
 
 class TelegramException extends Exception{}
+/**
+ * ==================================
+ * ===========TODO: Seperate=========
+ * ==================================
+ */
+
+/**
+* Send telegram message for new posts, videos and downloads.
+*/
+class sendTelegram
+{
+    /**
+     * Channel chat id.
+     *
+     * @access private
+     * @var string
+     */
+    private $chat_id;
+
+    /**
+     * Bot token.
+     *
+     * @access private
+     * @var string
+     */
+    private $token;
+
+    /**
+     * Add actions and initialize chat_id and token.
+     */
+    public function __construct() {
+        $this->chat_id = '@dhjdhdgjfhkdawop';//'@torlangameofficial';
+        $this->token   = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
+        add_action( 'publish_post',  array( $this, 'torlangame_posts_telegram_bot' ), 10, 2 );
+        add_action( 'publish_movies',  array( $this, 'torlangame_movies_telegram_bot' ), 10, 2 );
+        add_action( 'publish_downloads',  array( $this, 'torlangame_downloads_telegram_bot' ), 10, 2 );
+    }
+
+    /**
+     * Send new telegram on new post publish.
+     * 
+     * @param  integer $ID
+     * @param  WP_Post $post
+     * @return void
+     */
+    public function torlangame_posts_telegram_bot( $ID, $post ) {
+        $text  = $post->post_title . 
+                 PHP_EOL . 'جزئيات بيشتر در سايت تورلان گيم' . 
+                 PHP_EOL . wp_get_shortlink() . 
+                 PHP_EOL . '@TorlanGameOfficial';
+        
+        $this->send_photo( $post, $text );
+    }
+
+    /**
+     * Send new telegram on new video publish.
+     * 
+     * @param  integer $ID
+     * @param  WP_Post $post
+     * @return void
+     */
+    public function torlangame_movies_telegram_bot( $ID, $post ) {
+        $text .= $post->post_title . 
+                 PHP_EOL . 'مشاهده ویدیو های بيشتر در سايت تورلان گيم' . 
+                 PHP_EOL . get_post_meta( $ID, 'aparat_url', true) . 
+                 PHP_EOL . 'torlangame.com' .
+                 PHP_EOL . '@TorlanGameOfficial';
+
+        $this->send_text( $text );
+    }
+
+    /**
+     * Send new telegram on new download publish.
+     * 
+     * @param  integer $ID
+     * @param  WP_Post $post
+     * @return void
+     */
+    public function torlangame_downloads_telegram_bot( $ID, $post ) {
+        $text .= $post->post_title . 
+                 PHP_EOL . 'لینک های دانلود در سايت تورلان گيم' . 
+                 PHP_EOL . wp_get_shortlink() . 
+                 PHP_EOL . 'torlangame.com' .
+                 PHP_EOL . '@TorlanGameOfficial';
+        
+        $this->send_photo( $post, $text );
+    }
+
+    /**
+     * Send photo with caption.
+     * 
+     * @param  WP_Post $post
+     * @param  string $text
+     * @return void
+     */
+    private function send_photo( $post, $text ) {
+        $bot = new telegramBot( $this->token );
+        if ( has_post_thumbnail( $post ) ) {
+            $thumbnail_id = get_post_thumbnail_id( $ID );
+            $thumbnail_url = wp_get_attachment_url( $thumbnail_id );
+            $bot->sendPhoto( $this->chat_id, $thumbnail_url, $text );
+        } else {
+            $bot->sendMessage( $this->chat_id, $text );
+        }
+    }
+
+    /**
+     * Send text.
+     * 
+     * @param  string $text
+     * @return
+     */
+    private function send_text( $text ) {
+        $bot = new telegramBot( $this->token );
+        $bot->sendMessage( $this->chat_id, $text );
+    }
+}
+
+$sendTelegram = new sendTelegram();
