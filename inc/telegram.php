@@ -504,7 +504,7 @@ class sendTelegram
      * Add actions and initialize chat_id and token.
      */
     public function __construct() {
-        $this->chat_id = '@dhjdhdgjfhkdawop';//'@torlangameofficial';
+        $this->chat_id = '@torlangameofficial';
         $this->token   = '257351524:AAGgskaKINHEDcov3xyLScxGfHxikILgZWw';
         add_action( 'publish_post',  array( $this, 'torlangame_posts_telegram_bot' ), 10, 2 );
         add_action( 'publish_movies',  array( $this, 'torlangame_movies_telegram_bot' ), 10, 2 );
@@ -535,7 +535,7 @@ class sendTelegram
      * @return void
      */
     public function torlangame_movies_telegram_bot( $ID, $post ) {
-        $text .= $post->post_title . 
+        $text = $post->post_title . 
                  PHP_EOL . 'مشاهده ویدیو های بيشتر در سايت تورلان گيم' . 
                  PHP_EOL . get_post_meta( $ID, 'aparat_url', true) . 
                  PHP_EOL . 'torlangame.com' .
@@ -552,7 +552,7 @@ class sendTelegram
      * @return void
      */
     public function torlangame_downloads_telegram_bot( $ID, $post ) {
-        $text .= $post->post_title . 
+        $text = $post->post_title . 
                  PHP_EOL . 'لینک های دانلود در سايت تورلان گيم' . 
                  PHP_EOL . wp_get_shortlink() . 
                  PHP_EOL . 'torlangame.com' .

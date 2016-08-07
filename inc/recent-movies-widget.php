@@ -40,6 +40,9 @@ class torlangame_Widget_Recent_Movies extends WP_Widget {
         ob_start();
         extract($args);
 
+        if ( ! array_key_exists( 'title', $instance ) ) {
+            $instance['title'] = '';
+        }
         $title     = apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base );
         $number    = $instance['number'];
 
